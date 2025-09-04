@@ -1,0 +1,104 @@
+<html>
+<head>
+    <title>Databasa dokumenata</title>
+    <style>
+        .icon-bar {
+          width: 90px;
+          background-color: #054079;
+           position: fixed;
+        }
+
+        .icon-bar a {
+          display: block;
+          text-align: center;
+          padding-top: 50px;
+          padding: 30px;
+          padding-bottom: 50px;
+          transition: all 0.2s ease; /* !!efekat */
+          color: white;
+          font-size: 30px;
+          display: flex;
+          flex-direction: column;
+        }
+        .icon-bar a:hover {
+          background-color: #AAA; /* boja */
+        }
+
+        .active {
+          background-color: #F40AFD;
+        }
+        .maintext{
+            padding-left: 140px;
+            white-space: pre;
+        }
+        /*
+        input{
+            padding-left: ;
+            padding: ;
+            width: 40px;
+            text-align: center;
+        }*/
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="code.js"></script>
+    <script>
+        function addline(text){
+              var main =  document.getElementById("main");
+              const newDiv = document.createElement("div");
+              const linebreak = document.createElement("br");
+              const newContent = document.createTextNode( "----");
+              main.appendChild(newContent);
+              main.appendChild(linebreak);
+        }
+    </script>
+</head>
+<body onload="refresh()">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="icon-bar">
+    <!--<a href="#"><i class="fa fa-user"></i></a>-->
+    <a href="#">
+        <i class="fa fa-rotate-right" onclick="refresh()"></i>
+        <!--<input type="text" id="backInput" size="4">--><br>
+    </a>
+    <a href="#">
+        <i class="fa fa-arrow-left" onclick="nazad()" title="refresh"></i>
+        <!--<input type="text" id="backInput" size="4">--><br>
+    </a>
+    <a href="#" >
+        <i class="fa fa-search" onclick="traziLupa()" title="nadji po ID"></i>
+        <!--b>ID:</b-->
+        <input type="text" id="searchInput" style ="width:50px" size="4" title="ID folder"><br>
+    </a>
+    <a href="#">
+        <i class="fa fa-folder" onclick="folderDugme()" title="naparvi folder u ovom direktorijumu"></i>
+        <input type="text" id="nameInput" style ="width:50px" size="6" title = "ime foldera"><br>
+    </a>
+    <a href="#">
+        <i class="fa fa-envelope" onclick="fileDugme()" title = "napravi fajl u ovom direktorijumu"></i>
+        <input type="text" id="fileInput" style ="width:50px"  size="4" title = "ime fijla"><br>
+        <input type="text" id="dataInput" style ="width:50px" size="4" title = "text fijla"><br>
+    </a>
+    <a href="#">
+        <i class="fa fa-trash" onclick="brisiDugme()" title = "Obrisi folder po ID"></i>
+        <input type="text" id="removeInput" style="width: 50px" size="4" title = "ID foldera"><br>
+        <select id="cat" style="width: 50px">
+            <option value="file">Fajl</option>
+            <option value="folder">Folder</option>
+        </select>
+    </a>
+</div>
+<h1 class="maintext" id="maintitle">
+TITLE
+</h1>
+<div class="maintext" id="main">
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+</div>
+<div id = "notmain"></div>
+</body>
